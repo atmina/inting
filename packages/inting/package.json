@@ -1,0 +1,53 @@
+{
+  "name": "@atmina/inting",
+  "version": "0.0.1-pre",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "prebuild": "pnpm clean",
+    "build/": "tsup ./src/index.ts --target es6 --dts && tsup src/internals/middleware.ts --target es6 && tsup ./src/cli.ts --target esnext --format esm && copyfiles src/templates/* dist -u 1",
+    "build": "tsc && rimraf ./dist/templates/*.* && copyfiles ./src/templates/* ./dist -u 1",
+    "lint": "eslint src/**/*.ts*"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "bin": {
+    "inting": "bin/inting.js"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^17.0.12",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "next": "^13.1.1",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "^3.0.2",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.5.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@boost/module": "^4.0.0",
+    "dataloader": "^2.1.0",
+    "filenamify": "^5.1.1",
+    "find-up": "^6.3.0",
+    "strip-indent": "^4.0.0",
+    "yaml": "^2.1.3"
+  },
+  "peerDependencies": {
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

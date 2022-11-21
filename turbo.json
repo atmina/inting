@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["NODE_ENV","INTING_DEBUG"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "dependsOn": ["int"],
+      "cache": false
+    },
+	"int": {
+      "dependsOn": ["@atmina/inting#build", "@atmina/inting-preset-files#build"],
+      "inputs": ["inting.config.ts", "translations/**/*.*"]
+	}
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "inting-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:0.0.0",
+    "@atmina/inting": "workspace:*",
+    "prettier": "^2.7.1",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@7.23.0"
+}
