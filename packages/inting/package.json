@@ -37,7 +37,7 @@
   "dependencies": {
     "@boost/module": "^4.0.0",
     "dataloader": "^2.1.0",
-    "filenamify": "^5.1.1",
+    "filenamify": "^6.0.0",
     "find-up": "^6.3.0",
     "strip-indent": "^4.0.0",
     "yaml": "^2.1.3"
